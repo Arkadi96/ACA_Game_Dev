@@ -72,6 +72,7 @@ fibNumbersRec(0);
 Console.WriteLine();
 Console.WriteLine("***** no recursion ****");
 fibNumbersNoRec();
+Console.WriteLine();
 
 
 Console.WriteLine();
@@ -115,3 +116,100 @@ Console.WriteLine($"{factorialRec(number)} ");
 Console.WriteLine();
 Console.WriteLine("***** no recursion ****");
 Console.WriteLine($"{factorialNoRec(number)} ");
+
+Console.WriteLine();
+Console.WriteLine("**** 3rd exe. Calculate math operations with the given array ****");
+Console.WriteLine();
+
+Console.WriteLine("Insert array size");
+int arraySize = Convert.ToInt32(Console.ReadLine());
+Random rand = new Random();
+
+int[] array = new int[arraySize];
+Console.WriteLine("The given array is: ");
+for (int i = 0; i < arraySize; ++i)
+{
+    array[i] = rand.Next(0, 20);
+    Console.Write($"{array[i]} ");
+}
+
+Console.WriteLine();
+Console.WriteLine("**** multiplication of all elements that divide by 5 ****");
+Console.WriteLine();
+int mul = 1;
+for (int i = 0; i < arraySize; ++i)
+{
+    if (array[i] % 5 == 0)
+    {
+        mul *= array[i];
+    }
+}
+Console.WriteLine($"The result is: {mul} ");
+
+Console.WriteLine();
+Console.WriteLine("**** those elements sum of squares which indexes divide by 3 ****");
+Console.WriteLine();
+int sum = 0;
+for (int i = 0; i < arraySize; ++i)
+{
+    if (i % 3 == 0)
+    {
+        sum += array[i] * array[i];
+    }
+}
+Console.WriteLine($"The result is: {sum} ");
+
+Console.WriteLine();
+Console.WriteLine("**** find and remove all elements that are less than the given k number ****");
+Console.WriteLine("Insert the k number");
+Console.WriteLine();
+int k = Convert.ToInt32(Console.ReadLine());
+int count = 0;
+for (int i = 0; i < arraySize; ++i)
+{
+    if (array[i] >= k)
+    {
+        ++count;
+    }
+}
+
+int[] newArray = new int[count];
+count = 0;
+for (int i = 0; i < arraySize; ++i)
+{
+    if (array[i] >= k)
+    {
+        newArray[count] = array[i];
+        ++count;
+    }
+}
+
+Console.WriteLine("The new array is: ");
+for (int i = 0; i < count; ++i)
+{
+    Console.Write($"{newArray[i]} ");
+}
+
+Console.WriteLine();
+Console.WriteLine("**** BONUS: sort array in increasing order (n^2 - Big-O complexity) ****");
+
+int tempNumber = 0;
+for (int i = 0; i < arraySize; ++i)
+{
+    for (int j = i + 1; j < arraySize; ++j)
+    {
+        if (array[i] > array[j])
+        {
+            tempNumber = array[j];
+            array[j] = array[i];
+            array[i] = tempNumber;
+        }
+    }
+}
+
+Console.WriteLine("The sorted array is: ");
+for (int i = 0; i < arraySize; ++i)
+{
+    Console.Write($"{array[i]} ");
+}
+Console.WriteLine();
