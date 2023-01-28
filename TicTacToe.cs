@@ -1,5 +1,5 @@
 using System;
-namespace x_o_game
+namespace TickTacToe
 {
 	enum Field
 	{
@@ -7,6 +7,7 @@ namespace x_o_game
 		O,
 		X
 	}
+	
 	class Program
 	{
 		private const int MAP_SIZE = 3;
