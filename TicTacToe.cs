@@ -87,11 +87,11 @@ namespace x_o_game
 			int[] check = new int[8];
 
 			for (int i = 1; i < MAP_SIZE; ++i)
-            {
+            		{
 				if (map[0,i] == f1 && Field.Empty != f1)
-                {
+                		{
 					check[0] += 1;
-                }
+                		}
 				if (map[1, i] == f2 && Field.Empty != f2)
 				{
 					check[1] += 1;
@@ -123,29 +123,29 @@ namespace x_o_game
 			}
 
 			for (int i = 0; i < check.Length; ++i)
-            {
+            		{
 				if (check[i] == 2)
-                {
+               			{
 					hasWinner = true;
 					break;
-                }
-            }
+                		}
+            		}
 			
 			return hasWinner;
 		}
 
 		private static void checkForEndGame()
-        {
+        	{
 			if (checkForWinner())
-            {
+            		{
 				isGameOver = true;
 				Console.WriteLine("Winner is " + (isFirstPlayer ? "First player X" : "First player O"));
 			} else if (total_moves >= 9)
-            {
+            		{
 				isGameOver = true;
 				Console.WriteLine("Its a soldi draw!");
 			} else
-            {
+            		{
 				isGameOver = false;
 			}
 
@@ -156,12 +156,12 @@ namespace x_o_game
 		{
 			buildMap();
 			while (!isGameOver)
-            {
-                displayMap();
-                getInputTick();
-		checkForWinner();
-		checkForEndGame();
-            }
-        }
+            		{
+                		displayMap();
+				getInputTick();
+				checkForWinner();
+				checkForEndGame();
+            		}
+        	}
     }
 }
