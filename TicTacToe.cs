@@ -159,8 +159,8 @@ namespace x_o_game
             {
                 displayMap();
                 getInputTick();
-				checkForWinner();
-				checkForEndGame();
+		checkForWinner();
+		checkForEndGame();
             }
         }
     }
